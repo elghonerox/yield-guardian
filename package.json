@@ -1,0 +1,52 @@
+{
+  "name": "yield-guardian",
+  "version": "1.0.0",
+  "description": "Autonomous multi-protocol yield optimizer for DeFi - Agent Arena Hackathon",
+  "keywords": [
+    "defi",
+    "yield-optimization",
+    "autonomous-agent",
+    "adk-ts",
+    "blockchain",
+    "frax",
+    "aave",
+    "compound"
+  ],
+  "author": "Agent Arena Hackathon Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/yield-guardian.git"
+  },
+  "scripts": {
+    "dev": "tsx watch src/agent/index.ts",
+    "build": "tsc",
+    "start": "node dist/agent/index.js",
+    "test": "vitest",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "dependencies": {
+    "@iqai/adk": "^1.0.0",
+    "viem": "^2.37.8",
+    "ethers": "^6.15.0",
+    "dotenv": "^16.4.0",
+    "openai": "^4.20.0",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.4",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
+
