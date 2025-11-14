@@ -206,9 +206,6 @@ YieldGuardian leverages ADK-TS (IQAI Agent Development Kit - TypeScript) as its 
 
 ## 🌐 Live Demo
 
-- **ATP Launch:** Will be launched on ATP by December 12, 2025
-- **Demo Video:** [YouTube/Loom link - MAX 5 MIN] (to be added)
-- **GitHub:** [This repository]
 
 ---
 
@@ -442,15 +439,9 @@ Plan to apply for IQAI $10M fund based on:
 
 ## 👥 Team
 
-**[Team Name]**
+Hamza El Ghomri is a graduate of Tafe Queensland
 
-- **[Member 1]:** [Role] - [University] - [GitHub/LinkedIn]
-- **[Member 2]:** [Role] - [University] - [GitHub/LinkedIn]
-- **[Member 3]:** [Role] - [University] - [GitHub/LinkedIn]
-
-**University Affiliation:**
-
-[University name and proof of enrollment available]
+Web 3 developer
 
 ---
 
@@ -460,21 +451,11 @@ Plan to apply for IQAI $10M fund based on:
 - OpenMind for OM1 framework
 - EwhaChain for hosting
 - Frax Finance and KRWQ for sponsorship
-- [Any mentors or resources used]
-
 ---
 
 ## 📄 License
 
 MIT License - See LICENSE file for details
-
----
-
-## 📞 Contact
-
-- Discord: [Handle]
-- Email: [email]
-- Issues: [GitHub issues link]
 
 ---
 
@@ -501,4 +482,3 @@ MIT License - See LICENSE file for details
 - Scalable revenue model (subscription, performance fees)
 - Technical innovation and competitive moat
 - Post-hackathon roadmap for growth
-
