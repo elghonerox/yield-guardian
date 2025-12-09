@@ -2,6 +2,9 @@
 
 An autonomous AI agent that optimizes DeFi yields across multiple protocols. Built for the IQAI Agent Arena Hackathon using ADK-TS.
 
+Demo Website: https://yield-guardian-app.vercel.app/
+Youtube Video: https://www.youtube.com/watch?v=JSfjey69VLA
+
 ## What It Does
 
 Yield Guardian monitors yield opportunities across Aave, Compound, Frax, and Yearn, then automatically rebalances your positions to maximize returns while managing risk. Think of it as a robo-advisor for DeFi that actually understands gas costs and won't move your money unless it makes financial sense.
