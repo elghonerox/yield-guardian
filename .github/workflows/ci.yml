@@ -1,0 +1,94 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - name: Install
+        run: npm install
+      - name: Lint
+        run: npm run lint --workspaces --if-present
+      - name: Test
+        run: npm run test --workspaces --if-present
+      - name: Build
+        run: npm run build --workspaces --if-present
+
+  e2e:
+    needs: build-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - name: Install
+        run: npm install
+      - name: Install Playwright deps
+        run: npx playwright install --with-deps
+      - name: Start web app
+        run: |
+          npm run dev --workspace @yield-guardian/web -- --hostname 0.0.0.0 --port 3000 &
+          echo $! > web.pid
+          sleep 10
+      - name: Run Playwright
+        run: npm run test --workspace @yield-guardian/e2e
+      - name: Stop web app
+        if: always()
+        run: |
+          if [ -f web.pid ]; then kill $(cat web.pid) || true; fi
+
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Lint
+        run: npm run lint
+      
+      - name: Build
+        run: npm run build
+      
+      - name: Test
+        run: npm test
+
+  launch-check:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Dry Run ATP Launch
+        run: npx tsx tools/scripts/launch-atp.ts
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}

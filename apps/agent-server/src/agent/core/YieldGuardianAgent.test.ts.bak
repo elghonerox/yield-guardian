@@ -1,0 +1,65 @@
+/**
+ * Tests for YieldGuardianAgent
+ * 
+ * Basic test structure - can be expanded with more comprehensive tests
+ */
+
+import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { YieldGuardianAgent } from './YieldGuardianAgent';
+import { AgentBuilder } from '@iqai/adk';
+
+// Mock dependencies
+vi.mock('../autonomous/DecisionEngine');
+vi.mock('../blockchain/BlockchainIntegration');
+vi.mock('../monitoring/YieldMonitor');
+vi.mock('../risk/RiskManager');
+vi.mock('../execution/ExecutionLayer');
+
+describe('YieldGuardianAgent', () => {
+  let agent: YieldGuardianAgent;
+  let agentBuilder: AgentBuilder;
+
+  beforeEach(() => {
+    agentBuilder = new AgentBuilder()
+      .withName('YieldGuardian')
+      .withDescription('Test agent')
+      .withVersion('1.0.0');
+
+    agent = new YieldGuardianAgent(agentBuilder);
+  });
+
+  it('should initialize successfully', async () => {
+    // Mock initialization
+    vi.spyOn(agent as any, 'initialize').mockResolvedValue(undefined);
+
+    await expect(agent.initialize()).resolves.not.toThrow();
+  });
+
+  it('should start autonomous operation', async () => {
+    // Mock start
+    vi.spyOn(agent as any, 'start').mockResolvedValue(undefined);
+
+    await agent.initialize();
+    await expect(agent.start()).resolves.not.toThrow();
+  });
+
+  it('should stop autonomous operation', async () => {
+    await agent.initialize();
+    await agent.start();
+    await expect(agent.stop()).resolves.not.toThrow();
+  });
+
+  it('should return current state', () => {
+    const state = agent.getState();
+    expect(state).toBeDefined();
+    expect(state.isInitialized).toBe(false);
+  });
+
+  it('should return status', () => {
+    const status = agent.getStatus();
+    expect(status).toBeDefined();
+    expect(status.isRunning).toBe(false);
+    expect(status.isInitialized).toBe(false);
+  });
+});
+

@@ -1,0 +1,35 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AgentLog {
+  id        Int      @id @default(autoincrement())
+  level     String   // INFO, WARN, ERROR
+  message   String
+  metadata  String?  // JSON string
+  createdAt DateTime @default(now())
+}
+
+model TradeDecision {
+  id          Int      @id @default(autoincrement())
+  protocol    String
+  action      String   // REBALANCE, HARVEST
+  amount      String
+  reasoning   String
+  txHash      String?
+  status      String   // PENDING, COMPLETED, FAILED
+  createdAt   DateTime @default(now())
+}
+
+model RiskSnapshot {
+  id          Int      @id @default(autoincrement())
+  score       Int
+  factors     String   // JSON string of risk factors
+  timestamp   DateTime @default(now())
+}
