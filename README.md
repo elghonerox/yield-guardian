@@ -250,4 +250,4 @@ MIT
 - Frax Finance and KRWQ for sponsorship
 - The DeFi protocols (Aave, Compound, Frax, Yearn) for building great infrastructure
 
-Built with caffeine and determination during the IQAI Agent Arena Hackathon (Nov 10 - Dec 9, 2025).
+Built with Intetion and determination during the IQAI Agent Arena Hackathon (Nov 10 - Dec 9, 2025).
