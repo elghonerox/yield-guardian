@@ -49,3 +49,8 @@ secrets/
 .atp/
 deployment/
 
+
+# Local dev artifacts
+apps/agent-server/prisma/dev.db
+apps/web/.next/
+.artifacts/
