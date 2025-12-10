@@ -2,8 +2,9 @@
 
 An autonomous AI agent that optimizes DeFi yields across multiple protocols. Built for the IQAI Agent Arena Hackathon using ADK-TS.
 
-Demo Website: https://yield-guardian-app.vercel.app/
-Youtube Video: https://www.youtube.com/watch?v=JSfjey69VLA
+Demo Website: https://yield-guardian-app.vercel.app/ 
+
+Youtube Video: (https://youtu.be/7Zj4Jw3ne6E)
 
 ## What It Does
 
